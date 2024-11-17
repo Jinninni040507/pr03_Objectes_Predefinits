@@ -9,7 +9,7 @@ let firstColor = "";
 function startGame() {
   dom.showGameSection();
 
-  for (let index = 0; index < 5; index++) {
+  for (let index = 0; index < 7; index++) {
     state.generateWindow(handleClickWindow);
   }
 
@@ -18,6 +18,7 @@ function startGame() {
       dom.updateTime(time);
     },
     () => {
+      state.resetGeneratedWindowsArray();
       dom.showFinalSection();
     }
   );
@@ -45,7 +46,8 @@ function handleClickWindow(clickedColor, clickedWindow) {
     state.closeWindow(clickedWindow);
     resetWindowColorClicked();
 
-    if (!state.getGeneratedWindows()) {
+    if (!state.getGeneratedWindows().length) {
+      state.resetGeneratedWindowsArray();
       state.stopTimer();
       dom.showFinalSection();
     }

@@ -37,6 +37,13 @@ export function getGeneratedWindows() {
   return generatedWindows;
 }
 
+export function resetGeneratedWindowsArray() {
+  generatedWindows.forEach((element) => {
+    closeWindow(element);
+  });
+  generatedWindows = [];
+}
+
 export function generateWindow(handlerOnClick) {
   let posX = getRandNumber(0, screen.width - 350);
   let posY = getRandNumber(0, screen.height - 200);
