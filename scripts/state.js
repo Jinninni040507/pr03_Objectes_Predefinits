@@ -54,6 +54,8 @@ export function generateWindow(handlerOnClick) {
       handlerOnClick(color, newWindow);
       console.log(color);
     });
+
+    newWindow.color = color;
   });
 
   // Ref window
@@ -73,5 +75,8 @@ export function setWindowColor(windowToSet) {
   windowToSet.document.getElementById("color-name").innerText = color;
 
   windowToSet.document.body.style.backgroundColor = color;
+
+  windowToSet.color = color;
+
   return color;
 }

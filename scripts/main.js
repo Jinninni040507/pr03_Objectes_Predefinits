@@ -23,27 +23,39 @@ function startGame() {
   );
 }
 
+function resetWindowColorClicked() {
+  firstWindowClicked = null;
+  firstColor = "";
+}
+
 function handleClickWindow(clickedColor, clickedWindow) {
   if (!firstWindowClicked) {
     firstWindowClicked = clickedWindow;
-    firstColor = clickedColor;
+    console.log(firstWindowClicked);
     return;
   }
 
-  if (firstColor !== clickedColor) {
+  if (firstWindowClicked.color !== clickedWindow.color) {
+    resetWindowColorClicked();
     return;
   }
 
   if (firstWindowClicked !== clickedWindow) {
     state.closeWindow(firstWindowClicked);
     state.closeWindow(clickedWindow);
+    resetWindowColorClicked();
 
     if (!state.getGeneratedWindows()) {
       state.stopTimer();
       dom.showFinalSection();
     }
+
     return;
   }
+
+  resetWindowColorClicked();
+  console.log("color:", firstColor);
+  console.log("color:", clickedColor);
 
   state.generateWindow(handleClickWindow);
   state.setWindowColor(clickedWindow);
