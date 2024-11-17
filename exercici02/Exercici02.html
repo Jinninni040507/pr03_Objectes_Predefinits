@@ -3,7 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exercici02</title>
+    <script src="/scripts/main.js" type="module" defer></script>
+    <title>TintTap</title>
   </head>
-  <body></body>
+  <body>
+    <div class="stats">
+      <p>Latest game:</p>
+      <p class="game-result"></p>
+      <p>Total of windows open:</p>
+      <p class="windows-open"></p>
+    </div>
+    <section class="section__initial">
+      <h1>Tint<span class="tap">Tap</span></h1>
+      <button class="btn-start">START</button>
+    </section>
+    <section class="section__game">
+      <div class="color-1">···</div>
+      <div class="color-2">···</div>
+      <p class="timer"></p>
+      <button class="btn-stop">STOP</button>
+    </section>
+    <section class="section__final game-result-msg">
+      <h1></h1>
+      <h3></h3>
+      <p>Total of windows open:<span class="windows-open"></span></p>
+      <button class="btn-play-again">PLAY AGAIN</button>
+      <button class="btn-finalize">END</button>
+    </section>
+  </body>
 </html>
