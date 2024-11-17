@@ -6,7 +6,7 @@ dom.showInitialSection();
 let firstWindowClicked = null;
 
 function startGame() {
-  firstWindowClicked = null;
+  resetWindowColorClicked();
 
   dom.showGameSection();
 
@@ -26,18 +26,18 @@ function startGame() {
 }
 
 function stopGame() {
+  state.stopTimer();
   dom.showFinalSection();
-
   state.resetGeneratedWindowsArray();
 }
 
 function endGame() {
+  state.stopTimer();
   dom.showInitialSection();
 }
 
 function resetWindowColorClicked() {
   firstWindowClicked = null;
-  firstColor = "";
 }
 
 function handleClickWindow(clickedColor, clickedWindow) {

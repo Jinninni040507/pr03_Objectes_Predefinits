@@ -25,7 +25,7 @@ export function startTimer(handlerTimer, handlerStopTimer) {
   }, 1000);
 }
 
-export function stopTimer(handlerStopTimer) {
+export function stopTimer(handlerStopTimer = () => {}) {
   clearInterval(countdownInterval);
   handlerStopTimer();
 }
