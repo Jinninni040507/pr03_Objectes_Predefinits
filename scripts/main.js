@@ -4,9 +4,10 @@ import * as state from "./state.js";
 dom.showInitialSection();
 
 let firstWindowClicked = null;
-let firstColor = "";
 
 function startGame() {
+  firstWindowClicked = null;
+
   dom.showGameSection();
 
   for (let index = 0; index < 7; index++) {
@@ -22,6 +23,16 @@ function startGame() {
       dom.showFinalSection();
     }
   );
+}
+
+function stopGame() {
+  dom.showFinalSection();
+
+  state.resetGeneratedWindowsArray();
+}
+
+function endGame() {
+  dom.showInitialSection();
 }
 
 function resetWindowColorClicked() {
@@ -56,11 +67,15 @@ function handleClickWindow(clickedColor, clickedWindow) {
   }
 
   resetWindowColorClicked();
-  console.log("color:", firstColor);
-  console.log("color:", clickedColor);
 
   state.generateWindow(handleClickWindow);
   state.setWindowColor(clickedWindow);
 }
 
 dom.handleOnClickStart(startGame);
+
+dom.handleOnClickPlayAgain(startGame);
+
+dom.handleOnClickStop(stopGame);
+
+dom.handleOnClickEnd(endGame);

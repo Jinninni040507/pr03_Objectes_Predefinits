@@ -28,3 +28,21 @@ export function handleOnClickStart(handler) {
     handler();
   });
 }
+
+export function handleOnClickStop(handler) {
+  document.querySelector(".btn-stop").addEventListener("click", () => {
+    handler();
+  });
+}
+
+export function handleOnClickEnd(handler) {
+  document.querySelector(".btn-finalize").addEventListener("click", () => {
+    handler();
+  });
+}
+
+export function handleOnClickPlayAgain(handler) {
+  document.querySelector(".btn-play-again").addEventListener("click", () => {
+    handler();
+  });
+}
